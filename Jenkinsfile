@@ -21,6 +21,7 @@ node {
                 sh "pwd"
             }
             sh "pwd"
+            sh "ls -la"
             archiveArtifacts "sources/dist/add2vals" 
             sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
         }
