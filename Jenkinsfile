@@ -13,14 +13,10 @@ node {
         }
     }
     stage('Deploy') {
-        withEnv(['VOLUMES'='$(pwd)/sources:/src',
-                'IMAGE'='cdrx/pyinstaller-linux:python2']) {
-            dir(env.BUILD_ID){
-                unstash name: 'compiled-results'
-                sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'" 
-                archiveArtifacts "${env.BUILD_ID}/sources/dist/add2vals" 
-                sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
-            }
+        withEnv(['DISABLE_AUTH=true',
+             'DB_ENGINE=sqlite']) {
+            echo "Database engine is ${DB_ENGINE}"
+            echo "DISABLE_AUTH is ${DISABLE_AUTH}"
         }
     }
 }
