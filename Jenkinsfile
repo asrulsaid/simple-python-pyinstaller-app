@@ -17,13 +17,10 @@ node {
             dir(env.BUILD_ID){
                 unstash name: 'compiled-results'
                 sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'" 
-                // sh "ls -la sources"
-                // sh "pwd"
-                archiveArtifacts "sources/dist/add2vals" 
-                sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
+   
             }
-            // sh "ls -la sources"
-            // sh "ls -la ${env.BUILD_ID}/sources"
+            archiveArtifacts "sources/dist/add2vals" 
+            sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
         }
     }
 }
