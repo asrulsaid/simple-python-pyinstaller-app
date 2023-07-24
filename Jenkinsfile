@@ -21,7 +21,7 @@ node {
                 sh "pwd"
             }
             sh "pwd"
-            sh "ls -la"
+            sh "ls -la ${env.BUILD_ID}"
             archiveArtifacts "sources/dist/add2vals" 
             sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
         }
