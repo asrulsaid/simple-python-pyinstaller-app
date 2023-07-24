@@ -13,8 +13,9 @@ node {
         }
     }
     stage('Deploy') {
-        withEnv(["VOLUME=${pwd})/sources:/src"]) {
+        withEnv(["VOLUME=${pwd})/sources:/src", "IMAGE=cdrx/pyinstaller-linux:python2"]) {
             echo "VOLUME is ${VOLUME}"
+            echo "IMAGE is ${IMAGE}"
         }
     }
 }
