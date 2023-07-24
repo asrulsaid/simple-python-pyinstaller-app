@@ -12,6 +12,9 @@ node {
             junit 'test-reports/results.xml'
         }
     }
+    stage('Manual Approval') {
+        input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)' 
+    }
     stage('Deploy') {
         withEnv(["VOLUME=${pwd()}/sources:/src", "IMAGE=cdrx/pyinstaller-linux:python2"]) {
             dir(env.BUILD_ID){
