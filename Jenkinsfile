@@ -14,6 +14,5 @@ node {
     }
     stage('Deploy') {
             echo "VOLUME is ${pwd}"
-        }
     }
 }
