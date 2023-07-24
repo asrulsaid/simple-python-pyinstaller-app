@@ -13,7 +13,7 @@ node {
         }
     }
     stage('Deploy') {
-        withEnv(["VOLUME=$(pwd)/sources:/src"]) {
+        withEnv(['VOLUME=${(pwd)/sources:/src}']) {
             echo "VOLUME is ${VOLUME}"
         }
     }
