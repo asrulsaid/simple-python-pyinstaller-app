@@ -18,7 +18,9 @@ node {
                 unstash name: 'compiled-results'
                 sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'" 
                 sh "ls -la"
+                sh "pwd"
             }
+            sh "pwd"
             archiveArtifacts "sources/dist/add2vals" 
             sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
         }
