@@ -13,9 +13,9 @@ node {
         }
     }
     stage('Deploy') {
-        withEnv(['DISABLE_AUTH=true',
+        withEnv(['VOLUME=$(pwd)/sources:/src',
              'DB_ENGINE=sqlite']) {
-            echo "Database engine is ${DB_ENGINE}"
+            echo "Database engine is ${VOLUME}"
             echo "DISABLE_AUTH is ${DISABLE_AUTH}"
         }
     }
