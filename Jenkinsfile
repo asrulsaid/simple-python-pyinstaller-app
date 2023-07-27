@@ -33,15 +33,15 @@ node {
                             sshTransfer(
                                 cleanRemote: false,
                                 excludes: '',
-                                execCommand: 'ls -la',
+                                execCommand: 'ls',
                                 execTimeout: 120000,
                                 flatten: false,
                                 makeEmptyDirs: false,
                                 noDefaultExcludes: false,
                                 patternSeparator: '[, ]+',
-                                remoteDirectory: '/home/ubuntu',
+                                remoteDirectory: '',
                                 remoteDirectorySDF: false,
-                                removePrefix: '',
+                                removePrefix: 'sources/dist/',
                                 sourceFiles: 'sources/dist/add2vals'
                             )
                         ], 
@@ -53,7 +53,7 @@ node {
             )
 
             sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
-            sleep 60
+            // sleep 60
         }
     }
 }
