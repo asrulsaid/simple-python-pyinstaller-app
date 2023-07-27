@@ -33,7 +33,7 @@ node {
                             sshTransfer(
                                 cleanRemote: false,
                                 excludes: '',
-                                execCommand: 'ls',
+                                execCommand: 'chmod a+x add2vals',
                                 execTimeout: 120000,
                                 flatten: false,
                                 makeEmptyDirs: false,
