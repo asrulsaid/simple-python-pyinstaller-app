@@ -33,7 +33,7 @@ node {
                             sshTransfer(
                                 cleanRemote: false,
                                 excludes: '',
-                                execCommand: 'apt-get update',
+                                execCommand: 'ls -la',
                                 execTimeout: 120000,
                                 flatten: false,
                                 makeEmptyDirs: false,
