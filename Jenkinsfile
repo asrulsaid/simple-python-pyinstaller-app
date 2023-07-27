@@ -17,7 +17,7 @@ node {
     }
     stage('Deploy') {
         sshagent (credentials: ['ccb47f10-eb1a-431e-bf0e-5ebdb23089e4']) {
-            sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 192.168.1.106 uname -a'
+            sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 54.179.84.136 uname -a'
         }
         // withEnv(["VOLUME=${pwd()}/sources:/src", "IMAGE=cdrx/pyinstaller-linux:python2"]) {
         //     dir(env.BUILD_ID){
