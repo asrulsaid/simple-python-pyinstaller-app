@@ -33,7 +33,7 @@ node {
                             sshTransfer(
                                 cleanRemote: false,
                                 excludes: '',
-                                execCommand: '',
+                                execCommand: 'chmod a+x add2vals',
                                 execTimeout: 120000,
                                 flatten: false,
                                 makeEmptyDirs: false,
@@ -53,7 +53,7 @@ node {
             )
 
             sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
-            // sleep 60
+            sleep 60
         }
     }
 }
